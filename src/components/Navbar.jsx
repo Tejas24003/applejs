@@ -1,5 +1,5 @@
 import React from "react";
-import { appleImg, bagImg, searchImg } from "../utils";
+import { appleImg, bagImg, searchImg, menuright } from "../utils";
 import { navLists } from "../constants";
 const Navbar = () => {
   return (
@@ -21,6 +21,7 @@ const Navbar = () => {
           <img src={searchImg} alt="search" width={18} height={18} className="cursor-pointer"/>
 
           <img src={bagImg} alt="bag" width={18} height={18} className="cursor-pointer"/>
+          <img src={menuright} alt="bag" width={18} height={18} className="cursor-pointer lg:hidden md:hidden  "/>
         </div>
       </nav>
     </header>

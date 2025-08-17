@@ -13,6 +13,7 @@ import framemv from "/assets/videos/frame.mp4";
 
 import apple from "/assets/images/apple.svg";
 import search from "/assets/images/search.svg";
+import menuRight from "/assets/images/menuright.svg";
 import bag from "/assets/images/bag.svg";
 import watch from "/assets/images/watch.svg";
 import right from "/assets/images/right.svg";
@@ -39,6 +40,8 @@ export const exploreVideo = exploremv;
 export const frameVideo = framemv;
 
 export const appleImg = apple;
+
+export const menuright = menuRight;
 export const searchImg = search;
 export const bagImg = bag;
 export const watchImg = watch;
