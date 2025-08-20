@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { appleImg, bagImg, searchImg, menuright } from "../utils";
 import Dropdown from "./Dropdown";
 import Mdropdown from "./Mdropdown";
@@ -6,10 +6,30 @@ import SidebarMenu from "./Sidebarmenu";
 import { navLists } from "../constants";
 import Idropdown from "./Idropdown";
 import Sdropdown from "./Sdropdown";
+import gsap from "gsap";
 
 const Navbar = () => {
-  const [activeDropdown, setActiveDropdown] = useState(null); 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar state
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sidebarRef = useRef(null);
+
+  // Animate sidebar on open/close
+  useEffect(() => {
+    if (isSidebarOpen) {
+      gsap.fromTo(
+        sidebarRef.current,
+        { x: "100%", opacity: 0 },
+        { x: "0%", opacity: 1, duration: 0.5, ease: "power3.out" }
+      );
+    } else {
+      gsap.to(sidebarRef.current, {
+        x: "100%",
+        opacity: 0,
+        duration: 0.4,
+        ease: "power3.in",
+      });
+    }
+  }, [isSidebarOpen]);
 
   return (
     <header className="w-full py-4 sm:px-10 px-5 flex justify-center items-center relative">
@@ -100,24 +120,25 @@ const Navbar = () => {
             width={18}
             height={18}
             className="cursor-pointer lg:hidden md:hidden sm:hidden"
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)} // Toggle sidebar
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           />
         </div>
       </nav>
 
       {/* Sidebar Menu (Mobile) */}
-      {isSidebarOpen && (
-        <div className="fixed top-0 right-0 w-64 h-full bg-[#f5f5f7] shadow-lg z-50 p-6 transition-transform duration-300">
-          {/* Close Button */}
-          <button
-            className="absolute top-4 z-50 right-4 text-xl text-black font-bold"
-            onClick={() => setIsSidebarOpen(false)}
-          >
-            ✕
-          </button>
-          <SidebarMenu />
-        </div>
-      )}
+      <div
+        ref={sidebarRef}
+        className="fixed top-0 right-0 w-64 h-full bg-[#f5f5f7] shadow-lg z-50 p-6 transform translate-x-full"
+      >
+        {/* Close Button */}
+        <button
+          className="absolute top-4 z-50 right-4 text-xl text-black font-bold"
+          onClick={() => setIsSidebarOpen(false)}
+        >
+          ✕
+        </button>
+        <SidebarMenu />
+      </div>
     </header>
   );
 };

@@ -8,9 +8,12 @@ const menuItems = [
 ];
 
 const SidebarMenu = () => {
+  
+  
+
   return (
-    <nav className="bg-[#f5f5f7]  fixed top-0 left-0 w-full h-full p-6">
-      <ul className="space-y-4 absolute left-15 top-20">
+    <nav className="bg-[#f5f5f7]   fixed top-0 left-0 w-full h-full p-6">
+      <ul className="space-y-4 absolute sidemenu left-15  top-20">
 
         {menuItems.map((item, index) => (
           <li
