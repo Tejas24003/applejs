@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { appleImg, bagImg, searchImg, menuright } from "../utils";
 import Dropdown from "./Dropdown";
 import Mdropdown from "./Mdropdown";
+
 import { navLists } from "../constants";
+import Idropdown from "./Idropdown";
+import Sdropdown from "./Sdropdown";
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null); // "store" | "mac" | null
@@ -47,6 +50,24 @@ const Navbar = () => {
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <Mdropdown />
+                  </div>
+                )}
+                    {activeDropdown === "iphone" && (
+                  <div
+                    className="fixed left-0 w-screen bg-black/90 z-50"
+                    onMouseEnter={() => setActiveDropdown("iphone")}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
+                    <Idropdown/>
+                  </div>
+                )}
+                   {activeDropdown === "support" && (
+                  <div
+                    className="fixed left-0 w-screen bg-black/90 z-50"
+                    onMouseEnter={() => setActiveDropdown("support")}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
+                    <Sdropdown/>
                   </div>
                 )}
               </div>

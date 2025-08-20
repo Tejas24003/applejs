@@ -7,7 +7,7 @@ const Mdropdown = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-3 gap-12 px-12 py-10">
         {macDropdownData.map((section, index) => (
           <div key={index}>
-            <h3 className="text-gray-500 text-sm font-medium mb-4">{section.title}</h3>
+            
             <ul className="space-y-3">
               {section.items.map((item, idx) => (
                 <li

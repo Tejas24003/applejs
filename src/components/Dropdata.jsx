@@ -22,7 +22,7 @@ export const storeDropdown = {
 };
 export const macDropdownData = [
   {
-    title: "Explore Mac",
+   
     items: [
       "Explore All Mac",
       "MacBook Air",
@@ -37,7 +37,7 @@ export const macDropdownData = [
     ],
   },
   {
-    title: "Shop Mac",
+  
     items: [
       "Shop Mac",
       "Mac Accessories",
@@ -46,7 +46,7 @@ export const macDropdownData = [
     ],
   },
   {
-    title: "More from Mac",
+    
     items: [
       "Mac Support",
       "AppleCare",
@@ -57,6 +57,72 @@ export const macDropdownData = [
       "iCloud+",
       "Mac for Business",
       "Education",
+    ],
+  },
+];
+export const iphoneDropdownData = [
+  {
+    title: "Explore iPhone",
+    items: [
+      "Explore All iPhone",
+      "iPhone 16 Pro",
+      "iPhone 16",
+      "iPhone 16e",
+      "iPhone 15",
+      "Compare iPhone",
+      "Switch from Android",
+    ],
+  },
+  {
+    title: "Shop iPhone",
+    items: [
+      "Shop iPhone",
+      "iPhone Accessories",
+      "Apple Trade In",
+      "Ways to Buy",
+    ],
+  },
+  {
+    title: "More from iPhone",
+    items: [
+      "iPhone Support",
+      "AppleCare",
+      "iOS 26 Preview",
+      "Apple Intelligence",
+      "Apps by Apple",
+      "iPhone Privacy",
+      "iCloud+",
+      "Wallet",
+      "Siri",
+    ],
+  },
+];
+// Support Dropdown Data
+export const supportDropdownData = [
+  {
+    title: "Explore Support",
+    items: [
+      "iPhone",
+      "Mac",
+      "iPad",
+      "Watch",
+      "AirPods",
+      "Music",
+      "TV",
+      "Explore Support",
+    ],
+  },
+  {
+    title: "Get Help",
+    items: ["Community", "Check Coverage", "Genius Bar", "Repair"],
+  },
+  {
+    title: "Helpful Topics",
+    items: [
+      "Get AppleCare",
+      "Apple Account and Password",
+      "Billing & Subscriptions",
+      "Accessibility",
     ],
   },
 ];
