@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { appleImg, bagImg, searchImg, menuright } from "../utils";
 import Dropdown from "./Dropdown";
 import Mdropdown from "./Mdropdown";
-
+import SidebarMenu from "./Sidebarmenu";
 import { navLists } from "../constants";
 import Idropdown from "./Idropdown";
 import Sdropdown from "./Sdropdown";
 
 const Navbar = () => {
-  const [activeDropdown, setActiveDropdown] = useState(null); // "store" | "mac" | null
+  const [activeDropdown, setActiveDropdown] = useState(null); 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar state
 
   return (
     <header className="w-full py-4 sm:px-10 px-5 flex justify-center items-center relative">
@@ -52,22 +53,24 @@ const Navbar = () => {
                     <Mdropdown />
                   </div>
                 )}
-                    {activeDropdown === "iphone" && (
+
+                {activeDropdown === "iphone" && (
                   <div
                     className="fixed left-0 w-screen bg-black/90 z-50"
                     onMouseEnter={() => setActiveDropdown("iphone")}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <Idropdown/>
+                    <Idropdown />
                   </div>
                 )}
-                   {activeDropdown === "support" && (
+
+                {activeDropdown === "support" && (
                   <div
                     className="fixed left-0 w-screen bg-black/90 z-50"
                     onMouseEnter={() => setActiveDropdown("support")}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <Sdropdown/>
+                    <Sdropdown />
                   </div>
                 )}
               </div>
@@ -97,9 +100,24 @@ const Navbar = () => {
             width={18}
             height={18}
             className="cursor-pointer lg:hidden md:hidden sm:hidden"
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)} // Toggle sidebar
           />
         </div>
       </nav>
+
+      {/* Sidebar Menu (Mobile) */}
+      {isSidebarOpen && (
+        <div className="fixed top-0 right-0 w-64 h-full bg-[#f5f5f7] shadow-lg z-50 p-6 transition-transform duration-300">
+          {/* Close Button */}
+          <button
+            className="absolute top-4 z-50 right-4 text-xl text-black font-bold"
+            onClick={() => setIsSidebarOpen(false)}
+          >
+            ✕
+          </button>
+          <SidebarMenu />
+        </div>
+      )}
     </header>
   );
 };
