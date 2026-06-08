@@ -1,4 +1,14 @@
-import {
+import React from 'react';
+  
+  const Index = () =>  {
+	return (
+	  <div>
+	  </div>
+	);
+  }
+  
+  export default Index;
+  import {
   blackImg,
   blueImg,
   highlightFirstVideo,
@@ -9,7 +19,7 @@ import {
   yellowImg,
 } from "../utils";
 
-export const navLists = ["Store ", "Mac ", "iPhone ", "Support "];
+export const navLists = ["Store", "Mac", "iPhone", "Support"];
 
 export const hightlightsSlides = [
   {
